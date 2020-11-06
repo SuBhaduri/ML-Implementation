@@ -8,14 +8,15 @@ This is a temporary script file.
 import json
 import joblib
 import numpy as np
-from azureml.core.model import Model
+#from azureml.core.model import Model
 
+print("subha 0")
 # Called when the service is loaded
 def init():
     global model
     # Get the path to the registered model file and load it
-    model_path = Model.get_model_path('classification_model')
-    model = joblib.load(model_path)
+    model = joblib.load("Kaggle_Titanic_RF_Azure_Deploy.pkl")
+    print("subha 1")
 
 # Called when a request is received
 def run(raw_data):
@@ -24,5 +25,6 @@ def run(raw_data):
     # Get a prediction from the model
     predictions = model.predict(data)
     # Return the predictions as any JSON serializable format
+    print("subha 2")
     return predictions.tolist()
 
