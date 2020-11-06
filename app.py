@@ -20,7 +20,12 @@ print("subha 1")
 #def init():
 #    global model
     # Get the path to the registered model file and load it
-    
+
+@app.route('/')
+def home():
+    #return 'Hello World'
+    return render_template('home.html')
+    #return render_template('index.html')
 
 # Called when a request is received
 @app.route('/predict_api',methods=['POST'])
